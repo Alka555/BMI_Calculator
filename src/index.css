@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Ga Maamli", sans-serif;
+}
+body{
+    overflow-x: hidden;
+}
+
+.clr2{
+    background-color: blue;
+}
+/* #2a94ca
+#73a630
+#e27430
+#e52d2a
+#a7047f */
+
+/* https://bmi-calculator-nine-ashy.vercel.app/assets/bmiindex(1)-DZuarMFX.png */
+
+/* .bgd1 {
+    background-color: #333;
+    padding: 20px;
+  }
+  
+  .bgd2 {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 10px;
+  } */
+  
+  .custom-form {
+    background-color: #55555570;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  .custom-form input[type="text"] {
+    margin-bottom: 10px;
+  }
+  
+  .custom-form input[type="radio"] {
+    margin-right: 5px;
+  }
+  
+  .custom-form label {
+    margin-right: 20px;
+  }
+  .input-group-text {
+    background-color: #666;
+    color: #fff;
+    height: 37px;
+  }
+  .no-left-space {
+    margin-left: -60px !important;
+    padding-left: 0 !important;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }

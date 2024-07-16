@@ -1,0 +1,74 @@
+/* src/BmiCalculator.css */
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+  }
+  
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .bmi-calculator-card {
+    box-shadow: 0 4px 8px rgba(242, 203, 7, 0.1);
+    border: solid 1px rgb(255, 221, 0);
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.664);
+    color: #fefdfd;
+  }
+  
+  .bmi-calculator-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .bmi-calculator-card .card-body {
+    padding: 30px;
+  }
+  
+  .bmi-calculator-card h2 {
+    color: #fefdfd;
+    font-weight: bold;
+  }
+  
+  /* .bmi-calculator-card .form-control { */
+    /* border-radius: 20px; */
+    /* border: 1px solid #ddd; */
+    /* padding: 15px; */
+  /* } */
+  
+  /* .bmi-calculator-card .btn {
+    border-radius: 20px;
+    padding: 10px;
+  } */
+  
+  .bmi-result-card {
+    background-color: rgba(0, 0, 0, 0.664);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: solid 1px rgb(255, 221, 0);
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease;
+    width: 900px;
+  }
+  
+  .bmi-result-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* .bmi-result-card .card-body {
+    padding: 30px;
+  } */
+  
+  .bmi-result-card h3 {
+    /* color: #333; */
+    color: white;
+    font-weight: bold;
+  }
+  .custom-input:focus {
+    border-color: rgb(255, 221, 0); /* Change this to the desired color */
+    box-shadow: 0 0 0 0.2rem rgba(255, 221, 0, 0.486); /* Optional: Add shadow for better visibility */
+    outline: none; /* Remove default outline */
+  }
+  
