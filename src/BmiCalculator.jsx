@@ -107,147 +107,147 @@ const BmiCalculator = ({ toggleImageVisibility, showImage }) => {
       }}
       
     >
-      {!showResult && (
-        <Card className='cal-card' sx={{ minWidth: 375, backgroundColor: 'rgba(255, 255, 255, 0.1)', boxShadow: '0.7' }}> {/* Transparent background and no box shadow */}
-      <Typography variant="h3" gutterBottom style={{ color: 'rgb(104, 173, 156)' }}>
-        BMI Calculator
-      </Typography>
-          <CardContent>
-            <form onSubmit={handleSubmit}>
-              <Box sx={{ mb: 2, display: 'flex', alignItems: 'center', position: 'relative', boxShadow: (theme) => theme.shadows[2] }}> {/* Added shadow */}
-                <Button onClick={() => decrementValue(setHeight, height, 100)} style={{ color: 'rgb(59, 141, 120)' }}>-</Button>
-                <Box sx={{ flexGrow: 1, mx: 2 }}>
-                  <Typography style={{ color: 'rgb(59, 141, 120)' }}>Height: {height} cm</Typography>
-                  <Slider
-                    aria-label="Height"
-                    value={height}
-                    onChange={handleHeightChange}
-                    valueLabelDisplay="auto"
-                    min={100}
-                    max={250}
-                    step={1}
-                    sx={{ color: 'rgb(59, 141, 120)' }} /* Changed slider color */
-                  />
-                </Box>
-                <Button onClick={() => incrementValue(setHeight, height, 220)} style={{ color: 'rgb(59, 141, 120)' }}>+</Button>
-              </Box>
-              <Box sx={{ mb: 2, display: 'flex', alignItems: 'center', position: 'relative', boxShadow: (theme) => theme.shadows[2] }}> {/* Added shadow */}
-                <Button onClick={() => decrementValue(setWeight, weight, 30)} style={{ color: 'rgb(59, 141, 120)' }}>-</Button>
-                <Box sx={{ flexGrow: 1, mx: 2 }}>
-                  <Typography style={{ color: 'rgb(59, 141, 120)' }}>Weight: {weight} kg</Typography>
-                  <Slider
-                    aria-label="Weight"
-                    value={weight}
-                    onChange={handleWeightChange}
-                    valueLabelDisplay="auto"
-                    min={10}
-                    max={180}
-                    step={1}
-                    sx={{ color: 'rgb(59, 141, 120)' }} /* Changed slider color */
-                  />
-                </Box>
-                <Button onClick={() => incrementValue(setWeight, weight, 150)} style={{ color: 'rgb(59, 141, 120)' }}>+</Button>
-              </Box>
-              <Box sx={{ mb: 2, display: 'flex', alignItems: 'center', position: 'relative', boxShadow: (theme) => theme.shadows[2] }}> {/* Added shadow */}
-                <Button onClick={() => decrementValue(setAge, age, 10)} style={{ color: 'rgb(59, 141, 120)' }}>-</Button>
-                <Box sx={{ flexGrow: 1, mx: 2 }}>
-                  <Typography style={{ color: 'rgb(59, 141, 120)' }}>Age: {age}</Typography>
-                  <Slider
-                    aria-label="Age"
-                    value={age}
-                    onChange={handleAgeChange}
-                    valueLabelDisplay="auto"
-                    min={10}
-                    max={120}
-                    step={1}
-                    sx={{ color: 'rgb(104, 173, 156)' }} /* Changed slider color */
-                  />
-                </Box>
-                <Button onClick={() => incrementValue(setAge, age, 120)} style={{ color: 'rgb(59, 141, 120)' }}>+</Button>
-              </Box>
-              <ToggleButtonGroup
-                value={gender}
-                exclusive
-                onChange={handleToggleChange}
-                aria-label="gender"
-                sx={{ mb: 2, display: 'flex', justifyContent: 'center', gap: 0 }}
-              >
-                <ToggleButton
-                  value="female"
-                  aria-label="female"
-                  style={{ color: '#3f51b5', backgroundColor: gender === 'female' ? '#e1f5fe' : 'transparent' }}
-                  sx={{ '&.Mui-selected': { backgroundColor: '#e1f5fe' }, border: '1px solid rgb(104, 173, 156)', borderRadius: '4px', padding: '4px' }}
-                >
-                  <FemaleIcon />
-                  Female
-                </ToggleButton>
-                <ToggleButton
-                  value="male"
-                  aria-label="male"
-                  style={{ color: '#f44336', backgroundColor: gender === 'male' ? '#ffcdd2' : 'transparent' }}
-                  sx={{ '&.Mui-selected': { backgroundColor: '#ffcdd2' }, border: '1px solid rgb(104, 173, 156)', borderRadius: '4px', padding: '4px' }}
-                >
-                  <MaleIcon />
-                  Male
-                </ToggleButton>
-                <ToggleButton
-                  value="other"
-                  aria-label="other"
-                  style={{ color: '#4caf50', backgroundColor: gender === 'other' ? '#c8e6c9' : 'transparent' }}
-                  sx={{ '&.Mui-selected': { backgroundColor: '#c8e6c9' }, border: '1px solid rgb(104, 173, 156)', borderRadius: '4px', padding: '4px' }}
-                >
-                  <TransgenderIcon />
-                  Other
-                </ToggleButton>
-              </ToggleButtonGroup>
-              <Grid container justifyContent="center" className='mt-4'>
-                <Button type="submit" variant="contained" style={{ backgroundColor: 'rgb(104, 173, 156)' }}>
-                  Calculate BMI
-                </Button>
-              </Grid>
-            </form>
-          </CardContent>
-        </Card>
-      )}
-      {showResult && (
-        
-        <Box
-          sx={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexDirection:'column'
-          }}
-        >
-          <Typography variant="h4" gutterBottom>
-                Your BMI Score: <span style={{ color: clr }}>{bmi}</span>
-              </Typography>
-          <Card className="result-card" sx={{ minWidth: 600, backgroundColor: 'rgba(255, 255, 255, 0.1)', boxShadow: 'none', alignSelf: 'center' }}>
-            <CardContent>
-              
-              <Box sx={{ display: 'flex', justifyContent: 'center', alignItems:'center', gap: 0, flexDirection:'column'}}>
-                <ArcDesign bmi={bmi} />
-                <Box className='m-5' sx={{ border: `1px solid ${clr}`, borderRadius: '4px', padding: '16px' }}>
-                  <Typography variant="h5" style={{ color: 'white', backgroundColor: clr }} gutterBottom>
-                    {getBMICategory(bmi).category}
-                  </Typography>
-                  <Typography sx={{ display: 'flex', justifyContent: 'center', alignItems:'center', gap: 0, flexDirection:'column',color:'white'}}>{getBMICategory(bmi).tip}</Typography>
-                </Box>
-              </Box>
-              {/* <Accordion /> */}
-              <Button sx={{ mt: 2, backgroundColor: 'rgb(104, 173, 156)'}} variant="contained"  onClick={() => { handleClose(); showImage(); }}>
-                Back
-              </Button>
-            </CardContent>
-          </Card>
+{!showResult && (
+  <Card className='cal-card' sx={{ minWidth: 300, backgroundColor: 'rgba(255, 255, 255, 0.1)', boxShadow: '0.7' }}>
+    <Typography variant="h3" gutterBottom style={{ color: 'rgb(104, 173, 156)' }}>
+      BMI Calculator
+    </Typography>
+    <CardContent>
+      <form onSubmit={handleSubmit}>
+        <Box sx={{ mb: 2, display: 'flex', alignItems: 'center', position: 'relative', boxShadow: (theme) => theme.shadows[2] }}>
+          <Button onClick={() => decrementValue(setHeight, height, 100)} style={{ color: 'rgb(59, 141, 120)' }}>-</Button>
+          <Box sx={{ flexGrow: 1, mx: 2 }}>
+            <Typography style={{ color: 'rgb(59, 141, 120)' }}>Height: {height} cm</Typography>
+            <Slider
+              aria-label="Height"
+              value={height}
+              onChange={handleHeightChange}
+              valueLabelDisplay="auto"
+              min={100}
+              max={250}
+              step={1}
+              sx={{ color: 'rgb(59, 141, 120)' }}
+            />
+          </Box>
+          <Button onClick={() => incrementValue(setHeight, height, 220)} style={{ color: 'rgb(59, 141, 120)' }}>+</Button>
         </Box>
-      )}
+        <Box sx={{ mb: 2, display: 'flex', alignItems: 'center', position: 'relative', boxShadow: (theme) => theme.shadows[2] }}>
+          <Button onClick={() => decrementValue(setWeight, weight, 30)} style={{ color: 'rgb(59, 141, 120)' }}>-</Button>
+          <Box sx={{ flexGrow: 1, mx: 2 }}>
+            <Typography style={{ color: 'rgb(59, 141, 120)' }}>Weight: {weight} kg</Typography>
+            <Slider
+              aria-label="Weight"
+              value={weight}
+              onChange={handleWeightChange}
+              valueLabelDisplay="auto"
+              min={10}
+              max={180}
+              step={1}
+              sx={{ color: 'rgb(59, 141, 120)' }}
+            />
+          </Box>
+          <Button onClick={() => incrementValue(setWeight, weight, 150)} style={{ color: 'rgb(59, 141, 120)' }}>+</Button>
+        </Box>
+        <Box sx={{ mb: 2, display: 'flex', alignItems: 'center', position: 'relative', boxShadow: (theme) => theme.shadows[2] }}>
+          <Button onClick={() => decrementValue(setAge, age, 10)} style={{ color: 'rgb(59, 141, 120)' }}>-</Button>
+          <Box sx={{ flexGrow: 1, mx: 2 }}>
+            <Typography style={{ color: 'rgb(59, 141, 120)' }}>Age: {age}</Typography>
+            <Slider
+              aria-label="Age"
+              value={age}
+              onChange={handleAgeChange}
+              valueLabelDisplay="auto"
+              min={10}
+              max={120}
+              step={1}
+              sx={{ color: 'rgb(104, 173, 156)' }}
+            />
+          </Box>
+          <Button onClick={() => incrementValue(setAge, age, 120)} style={{ color: 'rgb(59, 141, 120)' }}>+</Button>
+        </Box>
+        <ToggleButtonGroup
+          value={gender}
+          exclusive
+          onChange={handleToggleChange}
+          aria-label="gender"
+          sx={{ mb: 2, display: 'flex', justifyContent: 'center', gap: 0 }}
+        >
+          <ToggleButton
+            value="female"
+            aria-label="female"
+            style={{ color: '#3f51b5', backgroundColor: gender === 'female' ? '#e1f5fe' : 'transparent' }}
+            sx={{ '&.Mui-selected': { backgroundColor: '#e1f5fe' }, border: '1px solid rgb(104, 173, 156)', borderRadius: '4px', padding: '4px' }}
+          >
+            <FemaleIcon />
+            Female
+          </ToggleButton>
+          <ToggleButton
+            value="male"
+            aria-label="male"
+            style={{ color: '#f44336', backgroundColor: gender === 'male' ? '#ffcdd2' : 'transparent' }}
+            sx={{ '&.Mui-selected': { backgroundColor: '#ffcdd2' }, border: '1px solid rgb(104, 173, 156)', borderRadius: '4px', padding: '4px' }}
+          >
+            <MaleIcon />
+            Male
+          </ToggleButton>
+          <ToggleButton
+            value="other"
+            aria-label="other"
+            style={{ color: '#4caf50', backgroundColor: gender === 'other' ? '#c8e6c9' : 'transparent' }}
+            sx={{ '&.Mui-selected': { backgroundColor: '#c8e6c9' }, border: '1px solid rgb(104, 173, 156)', borderRadius: '4px', padding: '4px' }}
+          >
+            <TransgenderIcon />
+            Other
+          </ToggleButton>
+        </ToggleButtonGroup>
+        <Grid container justifyContent="center" className='mt-4'>
+          <Button type="submit" variant="contained" style={{ backgroundColor: 'rgb(104, 173, 156)' }}>
+            Calculate BMI
+          </Button>
+        </Grid>
+      </form>
+    </CardContent>
+  </Card>
+)}
+
+{showResult && (
+  <Box
+    sx={{
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      flexDirection: 'column'
+    }}
+  >
+    <Typography variant="h4" gutterBottom style={{ color: 'rgb(104, 173, 156)' }}>
+      Your BMI Score: <span style={{ color: clr }}>{bmi}</span>
+    </Typography>
+    <Card className="result-card" sx={{ minWidth: 300, maxWidth: '100%', backgroundColor: 'rgba(255, 255, 255, 0.1)', boxShadow: 'none', alignSelf: 'center' }}>
+      <CardContent>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, justifyContent: 'center', alignItems: 'center', gap: 2 }}>
+          <ArcDesign bmi={bmi} />
+          <Box sx={{ border: `1px solid ${clr}`, borderRadius: '4px', padding: '16px', width: { xs: '100%', sm: 'auto' } }}>
+            <Typography variant="h5" style={{ color: 'white', backgroundColor: clr }} gutterBottom>
+              {getBMICategory(bmi).category}
+            </Typography>
+            <Typography style={{color: 'white'}}>{getBMICategory(bmi).tip}</Typography>
+          </Box>
+        </Box>
+        {/* <Accordion /> */}
+        <Button sx={{ mt: 2, backgroundColor: 'rgb(104, 173, 156)' }} variant="contained" onClick={() => { handleClose(); showImage(); }}>
+          Back
+        </Button>
+      </CardContent>
+    </Card>
+  </Box>
+)}
+
       <Snackbar open={showResult} onClose={handleClose}>
-        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }} >
           Your BMI is {bmi}
         </Alert>
       </Snackbar>
