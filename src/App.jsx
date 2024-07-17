@@ -19,7 +19,7 @@ const App = () => {
         <div className="col-md-6">
           {isImageVisible && (
             <div className='py-5 ps-5 mt-5 img'>
-              <img src="https://www.hdwallpaper.nu/wp-content/uploads/2017/02/fitness-20.jpg" alt="" width={'100%'} height={'100%'} />
+              <img src="fitness-20.jpg" alt="" width={'100%'} height={'100%'} />
             </div>
           )}
         </div>
