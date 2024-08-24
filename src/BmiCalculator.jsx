@@ -246,11 +246,11 @@ const BmiCalculator = ({ toggleImageVisibility, showImage }) => {
   </Box>
 )}
 
-      <Snackbar open={showResult} onClose={handleClose}>
+      {/* <Snackbar open={showResult} onClose={handleClose}>
         <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }} >
           Your BMI is {bmi}
         </Alert>
-      </Snackbar>
+      </Snackbar> */}
     </Box>
   );
 };
