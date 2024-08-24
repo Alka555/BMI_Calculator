@@ -228,7 +228,7 @@ const BmiCalculator = ({ toggleImageVisibility, showImage }) => {
     </Typography>
     <Card className="result-card" sx={{ minWidth: 300, maxWidth: '100%', backgroundColor: 'rgba(255, 255, 255, 0.1)', boxShadow: 'none', alignSelf: 'center' }}>
       <CardContent>
-        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, justifyContent: 'center', alignItems: 'center', gap: 2 }}>
+        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'column' , md:'column' }, justifyContent: 'center', alignItems: 'center', gap: 2 }}>
           <ArcDesign bmi={bmi} />
           <Box sx={{ border: `1px solid ${clr}`, borderRadius: '4px', padding: '16px', width: { xs: '100%', sm: 'auto' } }}>
             <Typography variant="h5" style={{ color: 'white', backgroundColor: clr }} gutterBottom>
